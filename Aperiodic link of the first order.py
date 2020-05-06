@@ -1,16 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.grid()
-
 k = 10
 T = 0.1
 
 
 # Весовая функция
 def weight_function():
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.grid()
     ax.set(xlim=[0, 1])
 
     x = np.linspace(0, 5, 100)
@@ -25,6 +24,9 @@ def weight_function():
 
 # Переходная функция
 def transition_function():
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.grid()
     ax.set(xlim=[0, 2])
 
     x = np.linspace(0, 5, 100)
@@ -39,9 +41,12 @@ def transition_function():
 
 # ФЧХ
 def phase_frequency_characteristic():
-    # ax.set(xlim=[0, 150])
-    w = np.linspace(0, 100)
-
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.grid()
+    ax.set(xlim=[0, 150])
+    x = np.linspace(-10, 300, 1000)
+    y = -np.arctan(0.1 * x)
     ax.plot(x, y)
 
     ax.set_xlabel(r'$\omega$', fontsize=14)
@@ -52,6 +57,9 @@ def phase_frequency_characteristic():
 
 # АФЧХ
 def amplitude_phase_frequency_response():
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.grid()
     w = np.linspace(-180, 0, 100)
 
     ax.plot(k/(T**2 * w**2 + 1), k*T*w/(T**2 * w**2 + 1))
@@ -64,18 +72,23 @@ def amplitude_phase_frequency_response():
 
 # ЛАЧХ
 def logarithmic_amplitude_frequency_response():
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.grid()
+    ax.set(xlim=[0, 40])
 
-    ax.set(xlim=[-10, 10])
-    ax.hlines(20, -10, 10, color='c')
+    w = np.linspace(0, 50, 100)
+    ax.plot(w, 20 * np.log10(k) - 20 * np.log10(np.sqrt(1 + T ** 2 * w ** 2)), color='c')
+
     ax.set_xlabel(r'$\omega$', fontsize=14)
     ax.set_ylabel(r'$L(\omega)$', fontsize=14)
 
     fig.savefig('Graphics/Aperiodic link of the first order/ЛАЧХ')
 
 
-# weight_function()
-# transition_function()
-# phase_frequency_characteristic()
+weight_function()
+transition_function()
+phase_frequency_characteristic()
 amplitude_phase_frequency_response()
-# logarithmic_amplitude_frequency_response()
-plt.show()
+logarithmic_amplitude_frequency_response()
+
