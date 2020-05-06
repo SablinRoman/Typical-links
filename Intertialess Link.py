@@ -13,6 +13,7 @@ def weight_function():
 
     fig.savefig('Graphics/Inertialess Link/Весовая функция')
 
+
 # Переходная функция
 def transition_function():
     fig = plt.figure()
@@ -25,6 +26,7 @@ def transition_function():
     ax.set_ylabel(r'$h(t)$', fontsize=14)
 
     fig.savefig('Graphics/Inertialess Link/Переходная функция')
+
 
 # ФЧХ
 def phase_frequency_characteristic():
@@ -39,6 +41,7 @@ def phase_frequency_characteristic():
 
     fig.savefig('Graphics/Inertialess Link/ФЧХ')
 
+
 # АФЧХ
 def amplitude_phase_frequency_response():
     fig = plt.figure()
@@ -51,6 +54,7 @@ def amplitude_phase_frequency_response():
     ax.set_ylabel(r'$V(\omega)$', fontsize=14)
 
     fig.savefig('Graphics/Inertialess Link/АФЧХ')
+
 
 # ЛАЧХ
 def logarithmic_amplitude_frequency_response():

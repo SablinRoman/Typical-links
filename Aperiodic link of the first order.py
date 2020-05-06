@@ -39,10 +39,9 @@ def transition_function():
 
 # ФЧХ
 def phase_frequency_characteristic():
-    ax.set(xlim=[0, 150])
+    # ax.set(xlim=[0, 150])
+    w = np.linspace(0, 100)
 
-    x = np.linspace(-10, 300, 1000)
-    y = -np.arctan(0.1 * x)
     ax.plot(x, y)
 
     ax.set_xlabel(r'$\omega$', fontsize=14)
@@ -57,7 +56,6 @@ def amplitude_phase_frequency_response():
 
     ax.plot(k/(T**2 * w**2 + 1), k*T*w/(T**2 * w**2 + 1))
 
-
     ax.set_xlabel(r'$U(\omega)$', fontsize=14)
     ax.set_ylabel(r'$V(\omega)$', fontsize=14)
 
@@ -66,9 +64,6 @@ def amplitude_phase_frequency_response():
 
 # ЛАЧХ
 def logarithmic_amplitude_frequency_response():
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.grid()
 
     ax.set(xlim=[-10, 10])
     ax.hlines(20, -10, 10, color='c')
